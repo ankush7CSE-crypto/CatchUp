@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CatchUp-Local - Analysis Results</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#4f46e5",
+            "tertiary": "#7e3000",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c7c4d8",
+            "primary-fixed": "#e2dfff",
+            "error-container": "#ffdad6",
+            "on-surface": "#191c1d",
+            "on-secondary-fixed": "#131b2e",
+            "error": "#ba1a1a",
+            "surface": "#f8f9fa",
+            "on-tertiary-fixed": "#351000",
+            "tertiary-fixed": "#ffdbcc",
+            "on-tertiary-container": "#ffd2be",
+            "tertiary-fixed-dim": "#ffb695",
+            "secondary-container": "#dae2fd",
+            "primary": "#3525cd",
+            "surface-container-low": "#f3f4f5",
+            "inverse-primary": "#c3c0ff",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#464555",
+            "surface-bright": "#f8f9fa",
+            "background": "#f8f9fa",
+            "surface-dim": "#d9dadb",
+            "inverse-on-surface": "#f0f1f2",
+            "surface-container": "#edeeef",
+            "on-error": "#ffffff",
+            "secondary": "#565e74",
+            "on-background": "#191c1d",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#3f465c",
+            "on-primary-fixed": "#0f0069",
+            "outline": "#777587",
+            "primary-fixed-dim": "#c3c0ff",
+            "inverse-surface": "#2e3132",
+            "secondary-fixed-dim": "#bec6e0",
+            "on-secondary-container": "#5c647a",
+            "on-error-container": "#93000a",
+            "surface-tint": "#4d44e3",
+            "on-primary": "#ffffff",
+            "tertiary-container": "#a44100",
+            "surface-container-highest": "#e1e3e4",
+            "surface-variant": "#e1e3e4",
+            "surface-container-high": "#e7e8e9",
+            "on-tertiary-fixed-variant": "#7b2f00",
+            "on-primary-fixed-variant": "#3323cc",
+            "on-primary-container": "#dad7ff",
+            "secondary-fixed": "#dae2fd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "code-md": ["JetBrains Mono"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "code-md": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="bg-surface text-primary font-headline-md h-16 px-space-lg flex justify-between items-center w-full sticky top-0 z-40 shadow-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-space-md">
+<a class="inline-flex items-center gap-2 text-secondary hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+<span class="font-body-sm font-semibold">← Back to Catch Up</span>
+</a>
+<div class="h-5 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-primary">CatchUp-Local</span>
+<span class="bg-surface-container px-space-sm py-0.5 rounded text-code-md text-on-surface-variant font-medium">#proj-infra-launch</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<!-- Status Badge -->
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant/40">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-label-md text-on-surface font-medium">100% On-Device / Air-Gapped</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm font-medium px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 border border-outline-variant/30">
+<span class="material-symbols-outlined text-[16px]" data-icon="content_copy">content_copy</span>
+          Copy Tasks
+        </button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm font-medium px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 border border-outline-variant/30">
+<span class="material-symbols-outlined text-[16px]" data-icon="download">download</span>
+          Export MD
+        </button>
+<button class="bg-primary-container text-on-primary font-body-sm font-medium px-3.5 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+          Mark Channel Caught Up
+        </button>
+</div>
+</div>
+</header>
+<!-- Main Content Layout -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Left/Center Canvas -->
+<main class="flex-1 overflow-y-auto p-space-lg space-y-space-xl max-w-6xl mx-auto">
+<!-- Executive AI Synthesis Card -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary-container"></div>
+<div class="flex justify-between items-start mb-space-md">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-headline-md text-on-surface font-bold">Executive AI Synthesis</h2>
+</div>
+<p class="text-body-sm text-on-surface-variant">Generated locally via Llama-3-70B-Instruct (Zero external telemetry)</p>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed text-label-md px-2.5 py-1 rounded-full font-medium">Consensus Reached</span>
+</div>
+<p class="text-body-lg text-on-surface mb-space-lg leading-relaxed">
+          The team completed the pre-launch infrastructure hardening sequence for <strong class="text-primary">#proj-infra-launch</strong>. Core consensus settled on increasing the pgBouncer connection pool ceiling to 60 and enforcing strict TLS validation across all inter-service mesh nodes. Minor friction regarding deployment window timing was resolved with a rolling rollout strategy.
+        </p>
+<!-- 4 Compact Metric Cards -->
+<div class="grid grid-cols-4 gap-space-md pt-2 border-t border-outline-variant/30">
+<div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant/20">
+<span class="text-label-md text-on-surface-variant block mb-1">Messages Analyzed</span>
+<span class="font-headline-lg text-on-surface">84</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant/20">
+<span class="text-label-md text-on-surface-variant block mb-1">Action Items</span>
+<span class="font-headline-lg text-primary">4</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant/20">
+<span class="text-label-md text-on-surface-variant block mb-1">Key Decisions</span>
+<span class="font-headline-lg text-on-surface">2</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant/20">
+<span class="text-label-md text-on-surface-variant block mb-1">Noise Reduced</span>
+<span class="font-headline-lg text-emerald-600">76%</span>
+</div>
+</div>
+</section>
+<!-- 'Important for You' Section (Personal Blast Radius) -->
+<section class="bg-primary-fixed/30 rounded-xl p-space-lg border border-primary-fixed-dim">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="person_pin">person_pin</span>
+<div>
+<h2 class="font-headline-md text-on-surface font-bold">Important for You</h2>
+<p class="text-body-sm text-on-surface-variant">Tailored blast radius for <span class="font-semibold text-primary">Priya</span> (Backend Engineer)</p>
+</div>
+</div>
+<span class="bg-primary-container text-on-primary text-label-md px-2.5 py-0.5 rounded font-medium">1 Direct Action Required</span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-space-md border border-outline-variant/30 flex items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-start gap-3">
+<input class="mt-1 rounded border-outline text-primary focus:ring-primary-container w-4 h-4" type="checkbox"/>
+<div>
+<h3 class="font-headline-sm text-on-surface mb-1">Patch database pooling timeout variables in production k8s manifests</h3>
+<div class="flex items-center gap-3 text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                  Today at 2:00 PM
+                </span>
+<span>•</span>
+<span class="bg-error-container text-on-error-container text-[11px] font-bold px-2 py-0.5 rounded">HIGH PRIORITY</span>
+</div>
+</div>
+</div>
+<button class="bg-surface-container hover:bg-surface-container-high text-primary font-body-sm font-medium px-3.5 py-2 rounded-lg transition-colors flex items-center gap-1.5 shrink-0 border border-outline-variant/40">
+<span class="material-symbols-outlined text-[16px]" data-icon="code">code</span>
+            View Source #L3
+          </button>
+</div>
+</section>
+<!-- Complete Action Items Matrix -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-on-surface font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="task_alt">task_alt</span>
+            Complete Action Items Matrix
+          </h2>
+<span class="text-body-sm text-on-surface-variant">4 total deliverables tracked</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 divide-y divide-outline-variant/30 shadow-sm">
+<!-- Item 1 -->
+<div class="p-space-md flex items-center justify-between gap-space-md hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center gap-3">
+<input class="rounded border-outline text-primary focus:ring-primary-container w-4 h-4" type="checkbox"/>
+<div>
+<p class="font-body-md text-on-surface font-medium">Update pgBouncer configuration limits in staging cluster</p>
+<div class="flex items-center gap-2 mt-1 text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+                    Tomorrow, 10:00 AM
+                  </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="bg-secondary-container text-on-secondary-container text-label-md px-2.5 py-1 rounded-full font-medium">Maya</span>
+<span class="bg-surface-container text-on-surface-variant text-[11px] font-medium px-2 py-0.5 rounded border border-outline-variant/30">MEDIUM</span>
+<button class="text-primary hover:bg-surface-container p-1.5 rounded-lg transition-colors flex items-center gap-1 text-body-sm font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+                View Source
+              </button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-md flex items-center justify-between gap-space-md hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center gap-3">
+<input class="rounded border-outline text-primary focus:ring-primary-container w-4 h-4" type="checkbox"/>
+<div>
+<p class="font-body-md text-on-surface font-medium">Patch database pooling timeout variables in production k8s manifests</p>
+<div class="flex items-center gap-2 mt-1 text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+                    Today at 2:00 PM
+                  </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="bg-secondary-container text-on-secondary-container text-label-md px-2.5 py-1 rounded-full font-medium">Priya</span>
+<span class="bg-error-container text-on-error-container text-[11px] font-bold px-2 py-0.5 rounded">HIGH</span>
+<button class="text-primary hover:bg-surface-container p-1.5 rounded-lg transition-colors flex items-center gap-1 text-body-sm font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+                View Source
+              </button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-space-md flex items-center justify-between gap-space-md hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center gap-3">
+<input class="rounded border-outline text-primary focus:ring-primary-container w-4 h-4" type="checkbox"/>
+<div>
+<p class="font-body-md text-on-surface font-medium">Verify TLS 1.3 cipher suite enforcement on edge load balancers</p>
+<div class="flex items-center gap-2 mt-1 text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+                    Oct 24, 5:00 PM
+                  </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="bg-secondary-container text-on-secondary-container text-label-md px-2.5 py-1 rounded-full font-medium">Julian</span>
+<span class="bg-surface-container text-on-surface-variant text-[11px] font-medium px-2 py-0.5 rounded border border-outline-variant/30">LOW</span>
+<button class="text-primary hover:bg-surface-container p-1.5 rounded-lg transition-colors flex items-center gap-1 text-body-sm font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+                View Source
+              </button>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="p-space-md flex items-center justify-between gap-space-md hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center gap-3">
+<input class="rounded border-outline text-primary focus:ring-primary-container w-4 h-4" type="checkbox"/>
+<div>
+<p class="font-body-md text-on-surface font-medium">Draft rollback runbook for the zero-downtime migration step</p>
+<div class="flex items-center gap-2 mt-1 text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+                    Tomorrow, 12:00 PM
+                  </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="bg-secondary-container text-on-secondary-container text-label-md px-2.5 py-1 rounded-full font-medium">Maya</span>
+<span class="bg-surface-container text-on-surface-variant text-[11px] font-medium px-2 py-0.5 rounded border border-outline-variant/30">MEDIUM</span>
+<button class="text-primary hover:bg-surface-container p-1.5 rounded-lg transition-colors flex items-center gap-1 text-body-sm font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+                View Source
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Decisions Register -->
+<section class="space-y-space-md">
+<h2 class="font-headline-md text-on-surface font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="gavel">gavel</span>
+          Key Decisions Register
+        </h2>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/40 shadow-sm relative">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-emerald-100 text-emerald-800 text-label-md px-2.5 py-0.5 rounded-full font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+                Consensus Approved
+              </span>
+<span class="text-code-md text-on-surface-variant">#DEC-01</span>
+</div>
+<h3 class="font-headline-sm text-on-surface mb-1">pgBouncer pool size increased from 25 to 60</h3>
+<p class="text-body-sm text-on-surface-variant">Agreed unanimously to accommodate heightened concurrency during peak traffic windows without exhausting backend connection limits.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/40 shadow-sm relative">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-emerald-100 text-emerald-800 text-label-md px-2.5 py-0.5 rounded-full font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+                Consensus Approved
+              </span>
+<span class="text-code-md text-on-surface-variant">#DEC-02</span>
+</div>
+<h3 class="font-headline-sm text-on-surface mb-1">Strict TLS cert validation enforced</h3>
+<p class="text-body-sm text-on-surface-variant">Mandated strict certificate verification across all internal gRPC mesh communications, deprecating self-signed fallback exceptions.</p>
+</div>
+</div>
+</section>
+<!-- Key Discussion Points -->
+<section class="space-y-space-md">
+<h2 class="font-headline-md text-on-surface font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="forum">forum</span>
+          Key Discussion Points
+        </h2>
+<div class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/40 shadow-sm space-y-4">
+<div>
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-headline-sm text-on-surface">Database Connection Pool Exhaustion under Load</h3>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="group">group</span>
+<span>Maya, Priya, Julian</span>
+</div>
+</div>
+<p class="text-body-sm text-on-surface-variant">Detailed debate regarding peak connection overhead. Evaluated scaling limits against memory footprint on primary nodes before reaching consensus on pool size 60.</p>
+</div>
+<div class="border-t border-outline-variant/30 pt-4">
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-headline-sm text-on-surface">Zero-Downtime Migration Window &amp; Rollback Safety</h3>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="group">group</span>
+<span>Maya, Julian</span>
+</div>
+</div>
+<p class="text-body-sm text-on-surface-variant">Reviewed timing for rolling deployments. Discussed potential edge cases with legacy client timeouts during DNS propagation delays.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Right-hand / Split-view Source Message Inspector -->
+<aside class="w-[440px] bg-surface-container-low border-l border-outline-variant/40 flex flex-col h-[calc(100vh-4rem)] sticky top-16 shadow-lg">
+<!-- Panel Header -->
+<div class="p-space-md border-b border-outline-variant/40 flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="text_snippet">text_snippet</span>
+<div>
+<h3 class="font-headline-sm text-on-surface">Source Message Inspector</h3>
+<p class="text-body-sm text-on-surface-variant">#proj-infra-launch thread log</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-emerald-100 text-emerald-800 text-[11px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+            Verified on-device
+          </span>
+</div>
+</div>
+<!-- Raw Chat Messages with Line Numbers (#L1 to #L10) -->
+<div class="flex-1 overflow-y-auto font-code-md text-code-md divide-y divide-outline-variant/20 bg-surface-container-lowest">
+<!-- Line #L1 -->
+<div class="p-3 flex items-start gap-3 hover:bg-surface-container-low transition-colors">
+<span class="text-on-surface-variant/50 select-none w-8 text-right shrink-0">#L1</span>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-semibold text-on-surface font-body-sm">Maya</span>
+<span class="text-body-sm text-on-surface-variant">10:42 AM</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">Team, we need to finalize the connection pool limits before staging deployment tonight.</p>
+</div>
+</div>
+<!-- Line #L2 -->
+<div class="p-3 flex items-start gap-3 hover:bg-surface-container-low transition-colors">
+<span class="text-on-surface-variant/50 select-none w-8 text-right shrink-0">#L2</span>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-semibold text-on-surface font-body-sm">Julian</span>
+<span class="text-body-sm text-on-surface-variant">10:44 AM</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">Current limit of 25 is definitely too tight for the expected traffic spike.</p>
+</div>
+</div>
+<!-- Line #L3 - HIGHLIGHTED IN AMBER -->
+<div class="p-3 flex items-start gap-3 bg-amber-50/80 border-l-4 border-amber-500 relative">
+<span class="text-amber-700 font-bold select-none w-8 text-right shrink-0">#L3</span>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-0.5">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-on-surface font-body-sm">Priya</span>
+<span class="text-body-sm text-on-surface-variant">10:45 AM</span>
+</div>
+<span class="bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">ORIGIN</span>
+</div>
+<p class="text-on-surface font-body-sm">I'll patch the database pooling timeout variables in production k8s manifests by 2:00 PM today.</p>
+</div>
+</div>
+<!-- Line #L4 -->
+<div class="p-3 flex items-start gap-3 hover:bg-surface-container-low transition-colors">
+<span class="text-on-surface-variant/50 select-none w-8 text-right shrink-0">#L4</span>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-semibold text-on-surface font-body-sm">Maya</span>
+<span class="text-body-sm text-on-surface-variant">10:46 AM</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">Sounds great. Let's push the ceiling to 60 overall across the fleet.</p>
+</div>
+</div>
+<!-- Line #L5 -->
+<div class="p-3 flex items-start gap-3 hover:bg-surface-container-low transition-colors">
+<span class="text-on-surface-variant/50 select-none w-8 text-right shrink-0">#L5</span>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-semibold text-on-surface font-body-sm">Julian</span>
+<span class="text-body-sm text-on-surface-variant">10:48 AM</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">Agreed on 60. What about TLS certificate validation checks?</p>
+</div>
+</div>
+<!-- Line #L6 -->
+<div class="p-3 flex items-start gap-3 hover:bg-surface-container-low transition-colors">
+<span class="text-on-surface-variant/50 select-none w-8 text-right shrink-0">#L6</span>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-semibold text-on-surface font-body-sm">Priya</span>
+<span class="text-body-sm text-on-surface-variant">10:50 AM</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">We must enforce strict validation. No self-signed exceptions allowed in prod mesh.</p>
+</div>
+</div>
+<!-- Line #L7 -->
+<div class="p-3 flex items-start gap-3 hover:bg-surface-container-low transition-colors">
+<span class="text-on-surface-variant/50 select-none w-8 text-right shrink-0">#L7</span>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-semibold text-on-surface font-body-sm">Maya</span>
+<span class="text-body-sm text-on-surface-variant">10:52 AM</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">Locked in. Julian, can you verify TLS 1.3 ciphers on edge load balancers by Friday?</p>
+</div>
+</div>
+<!-- Line #L8 -->
+<div class="p-3 flex items-start gap-3 hover:bg-surface-container-low transition-colors">
+<span class="text-on-surface-variant/50 select-none w-8 text-right shrink-0">#L8</span>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-semibold text-on-surface font-body-sm">Julian</span>
+<span class="text-body-sm text-on-surface-variant">10:54 AM</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">Will do. I'll handle that right after the morning sprint review.</p>
+</div>
+</div>
+<!-- Line #L9 -->
+<div class="p-3 flex items-start gap-3 hover:bg-surface-container-low transition-colors">
+<span class="text-on-surface-variant/50 select-none w-8 text-right shrink-0">#L9</span>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-semibold text-on-surface font-body-sm">Maya</span>
+<span class="text-body-sm text-on-surface-variant">10:56 AM</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">And I'll draft the rollback runbook for the zero-downtime migration step.</p>
+</div>
+</div>
+<!-- Line #L10 -->
+<div class="p-3 flex items-start gap-3 hover:bg-surface-container-low transition-colors">
+<span class="text-on-surface-variant/50 select-none w-8 text-right shrink-0">#L10</span>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-semibold text-on-surface font-body-sm">Priya</span>
+<span class="text-body-sm text-on-surface-variant">10:58 AM</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">Perfect. Everything looks solid for the launch sequence.</p>
+</div>
+</div>
+</div>
+<!-- Panel Footer -->
+<div class="p-3 bg-surface-container border-t border-outline-variant/40 flex items-center justify-between text-body-sm text-on-surface-variant">
+<span>Showing lines 1-10 of 84</span>
+<span class="font-medium text-primary">Context Hash: #9af28e</span>
+</div>
+</aside>
+</div>
+</body></html>
+
